@@ -1,0 +1,229 @@
+.add-note-container {
+  padding: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+  animation: slideDown 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-note-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.add-note-item {
+  --border-radius: 14px;
+  --background: rgba(255, 255, 255, 0.95);
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+.add-note-item ion-input {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  font-size: 15px;
+  color: #2d3748;
+}
+
+.add-note-button {
+  --border-radius: 14px;
+  --background: rgba(255, 255, 255, 0.95);
+  --color: #667eea;
+  font-weight: 700;
+  font-size: 16px;
+  height: 52px;
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.5px;
+}
+
+.add-note-button:hover {
+  --background: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
+}
+
+ion-content {
+  --background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+
+.notes-list {
+  margin: 20px;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent !important;
+  padding: 0;
+}
+
+.note-card {
+  border-radius: 18px;
+  margin-bottom: 16px;
+  padding: 20px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeInUp 0.6s ease backwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.note-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.note-card:hover::before {
+  opacity: 1;
+}
+
+.note-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.note-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.note-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.note-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.note-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.note-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.note-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.note-text {
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 1.6;
+  flex: 1;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  word-break: break-word;
+}
+
+.note-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.action-button {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  margin: 0;
+  width: 44px;
+  height: 44px;
+  --border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.edit-button {
+  --background: rgba(255, 255, 255, 0.25);
+  --background-hover: rgba(255, 255, 255, 0.35);
+  --background-activated: rgba(255, 255, 255, 0.45);
+}
+
+.delete-button {
+  --background: rgba(255, 255, 255, 0.25);
+  --background-hover: rgba(255, 255, 255, 0.35);
+  --background-activated: rgba(255, 255, 255, 0.45);
+}
+
+.action-button ion-icon {
+  font-size: 24px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.action-button:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.action-button:active {
+  transform: scale(0.95);
+}
+
+.edit-button:hover ion-icon {
+  transform: rotate(-10deg);
+}
+
+.delete-button:hover ion-icon {
+  transform: scale(1.1);
+}

@@ -1,0 +1,151 @@
+ion-content {
+  --background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .subjects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .subjects-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.subject-card {
+  aspect-ratio: 1;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInScale 0.6s ease backwards;
+}
+
+.subject-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.subject-card:hover::before {
+  transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+.subject-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.subject-card:active {
+  transform: translateY(-8px) scale(1.02);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.subject-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.subject-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.subject-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.subject-card:nth-child(4) {
+  animation-delay: 0.25s;
+}
+.subject-card:nth-child(5) {
+  animation-delay: 0.3s;
+}
+.subject-card:nth-child(6) {
+  animation-delay: 0.35s;
+}
+.subject-card:nth-child(7) {
+  animation-delay: 0.4s;
+}
+.subject-card:nth-child(8) {
+  animation-delay: 0.45s;
+}
+
+.subject-icon {
+  font-size: 56px;
+  color: #ffffff;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.subject-card:hover .subject-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.subject-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.subject-card:hover .subject-name {
+  transform: translateY(-4px);
+}
+
+ion-fab-button {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+  width: 64px;
+  height: 64px;
+}
+
+ion-fab-button:hover {
+  transform: scale(1.1);
+}
+
+ion-fab-button ion-icon {
+  font-size: 32px;
+}
