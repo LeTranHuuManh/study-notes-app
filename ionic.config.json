@@ -1,0 +1,7 @@
+{
+  "name": "study-notes-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
